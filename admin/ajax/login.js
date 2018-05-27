@@ -1,4 +1,5 @@
 
+//Login Js
 $(document).ready(function(){
 
 		$("#form_ready").submit(function(event){
@@ -11,7 +12,16 @@ $(document).ready(function(){
 				url:"config/islem.php",
 				data:formDetail.serialize(),
 				success:function(data){
-					swal(data.statustext,data.message,data.status);
+					swal(data.statustext,data.message,data.status).then((value) =>{
+						if(data.status=="success"){
+							window.location.href ="index.php";
+						}
+											
+					});
+
+					
+				    return false;
+					
 				}
 			});
 		})

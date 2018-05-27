@@ -2,7 +2,7 @@
 /*
 * Static PDO MySQL Database Class
 * 
-* Ertuðrul Deniz
+* Ertugrul Deniz
 *
 */
 

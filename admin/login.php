@@ -1,3 +1,10 @@
+
+<?php 
+     ob_start(); 
+     if(isset($_SESSION['login'])){
+      header("location:index.php");
+  } ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,7 +59,7 @@
                         <form role="form"  id="form_ready">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-posta" id="email" name="email" type="email" autofocus>
+                                    <input class="form-control" placeholder="E-posta" id="email"  name="email" type="email" autofocus>
                                 </div>
 
                                 <div class="form-group">
@@ -61,7 +68,7 @@
 
                                 <div class="checkbox">
                                     <label>
-                                        <input name="remember" type="checkbox" value="Remember Me">Beni Hatırla
+                                        <input name="remember" type="checkbox" id="remember" value="Remember Me">Beni Hatırla
                                     </label>
                                 </div>
                                 <input type="hidden" name="login" value="<?=uniqid();?>">
