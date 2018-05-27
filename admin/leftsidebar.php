@@ -20,6 +20,10 @@
                         </li>
 
                          <li>
+                            <a href="ayarlar.php"><i class="fa fa-cog fa-fw"></i> Ayarlar</a>
+                        </li>
+
+                         <li>
                             <a href="adaylar.php"><i class="fa fa-user fa-fw"></i> Adaylar </a>
                         </li>
 

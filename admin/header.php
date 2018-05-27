@@ -38,6 +38,12 @@
      <!-- DataTables CSS -->
     <link href="vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
 
+        <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
 
 </head>
 
@@ -54,7 +60,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Cb-Seçim Yönetim Paneli</a>
+                <a class="navbar-brand" href="index.php">Cb-Seçim Yönetim Paneli</a>
             </div>
             <!-- /.navbar-header -->
 

@@ -189,6 +189,93 @@
 
 
 
+    //AYAR EKLE BAŞLA
+    
+    if(isset($_POST["ayar_ekle"]) and $_POST["ayar_ekle"]=="ok"){
+
+        $_POST=array_map("clear",$_POST);
+        extract($_POST);
+
+        if(strlen($ad)>0 && strlen($tur)>0){
+
+             $sorgu='INSERT INTO  ayar (ad,tur,aciklama) values(?,?,?)';
+             $insert = DB::query($sorgu, array($ad, $tur,$aciklama));
+
+             if($insert){
+                 $response_array['status'] = 'success';
+                 $response_array['statustext'] = 'Başarılı';
+                 $response_array['message'] = 'Başarıyla aday bilgileri düzenlendi.';
+             }else{
+                 $response_array['status'] = 'error';
+                 $response_array['statustext'] = 'Hata';
+                 $response_array['message'] = 'Veri eklenilemedi.';
+             }
+
+        }else{
+
+            $response_array['status'] = 'warning';
+           $response_array['statustext'] = 'Boş ALan';
+             $response_array['message'] = 'Tüm alanların doldurulması zorunludur.';
+
+        }
+
+
+    }
+  //AYar ekle bitiş
+
+
+     //Ayar SİL BAŞLA 
+
+    if(@$_GET['ayar_sil']=="ok"){
+
+        $_GET=array_map("clear",$_GET);
+        extract($_GET);
+
+        $delete=DB::query("DELETE FROM ayar Where id=?",array($_GET['id']));
+
+        if($delete){ 
+            header("location:../ayarlar.php");
+        }
+    }
+
+
+    //AYar SİL BİTİŞ
+
+
+
+        //AYAR düzenle BAŞLA
+    
+    if(isset($_POST["ayar_duzenle"]) and $_POST["ayar_duzenle"]=="ok"){
+
+        $_POST=array_map("clear",$_POST);
+        extract($_POST);
+
+        if(strlen($ad)>0 && strlen($tur)>0){
+            $id=base64_decode($id);
+             $sorgu='UPDATE ayar SET ad=?,tur=?,aciklama=? WHERE id=?';
+             $update = DB::query($sorgu, array($ad, $tur,$aciklama,$id));
+
+             if($update){
+                 $response_array['status'] = 'success';
+                 $response_array['statustext'] = 'Başarılı';
+                 $response_array['message'] = 'Başarıyla yar bilgileri güncellendi.';
+             }else{
+                 $response_array['status'] = 'error';
+                 $response_array['statustext'] = 'Hata';
+                 $response_array['message'] = 'Hata Oluştu.';
+             }
+
+        }else{
+
+            $response_array['status'] = 'warning';
+            $response_array['statustext'] = 'Boş ALan';
+             $response_array['message'] = 'Tüm alanların doldurulması zorunludur.';
+
+        }
+
+
+    }
+  //AYar ekle bitiş
 
 
 

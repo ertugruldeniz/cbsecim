@@ -1,4 +1,13 @@
-<?php include_once "admin/config/config.php";  ?>
+<?php include_once "admin/config/config.php"; 
+    if(empty($_SESSION['title'])){
+
+      $ayarlar=DB::get("SELECT * FROM ayar");
+      foreach ($ayarlar as $ayar) {
+          $_SESSION[$ayar->ad]=$ayar->tur;
+      }
+      
+    }
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,10 +15,11 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="<?=$_SESSION['description'];?>" >
+    <meta name="keywords" content="<?=$_SESSION['keywords'];?>" >
+    <meta name="author" content="<?=$_SESSION['author'];?>" >
 
-    <title>Cb Anket Sitesi</title>
+    <title> <?=$_SESSION['title'];?> </title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
