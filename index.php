@@ -42,28 +42,69 @@
                               <span aria-hidden="true">&times;</span>
                             </button>
                           </div>
-                          <div class="modal-body">
+
+                          <form id="mailForm<?=$aday->id;?>">
+                              <div class="modal-body">
 
 
-                             <form>
-                                  <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Recipient:</label>
-                                    <input type="text" class="form-control" id="recipient-name">
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="message-text" class="col-form-label">Message:</label>
-                                    <textarea class="form-control" id="message-text"></textarea>
-                                  </div>
-                                </form>
+                                 
+                                      <div class="form-group">
+                                        <label for="recipient-name" class="col-form-label">Mail adresinize kod gönderilecektir. Geçerli bir mail adresi giriniz.</label>
+                                        <input type="email" class="form-control" id="mail" name="mail" placeholder="Mail Adresi Giriniz">
+                                        <input type="hidden" class="form-control" id="mail_onay" name="mail_onay" value="<?=base64_encode("ok"); ?>" >
+                                      </div>
+                                      
+                                   
 
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                          </div>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                                <button type="submit" class="btn btn-primary"> Doğrulama Kodu</button>
+                              </div>
+
+                         </form>
                         </div>
                       </div>
                     </div>
+
+
+                  <script>
+                    
+
+                        $(document).ready(function(event){
+
+                          //Ajax
+                          $("#mailForm<?=$aday->id;?>").on("submit",function(e){
+                             
+                            var formData = new FormData();
+
+                            var mail=$( "#mail" ).val();
+                            var mail_onay=$( "#mail_onay" ).val();
+                            formData.append('mail', mail);
+                            formData.append('mail_onay', mail_onay);
+                            e.preventDefault();
+                            $.ajax({
+                                   url : 'config/islem.php',
+                                   type : 'POST',
+                                   data : formData,
+                                   processData: false,  // tell jQuery not to process the data
+                                   contentType: false,  // tell jQuery not to set contentType
+                                   success : function(data) {
+                                  
+                                     swal(data.statustext,data.message,data.status);
+
+                                    }
+                                              
+                                  });
+                                   
+                            });
+
+                            return false;
+
+                          
+                          });
+                  </script>
+
 
 
 
@@ -82,3 +123,4 @@
 
 <!--  Footer -->
 <?php include "footer.php"; ?>
+

@@ -65,4 +65,29 @@ function tarih($tarih){
 }
 
 
+function mail_gonder($baslik, $icerik, $alici){
+
+    //Ertuğrul Deniz
+    include 'class.phpmailer.php';
+  $mail = new PHPMailer();
+   $mail->IsSMTP();
+   $mail->SMTPAuth = true;
+   $mail->Host = '#';
+   $mail->Port = 587;
+   $mail->Username = '#';
+   $mail->Password = '#';
+   $mail->SetFrom($mail->Username, "CB Seçim Anketi");
+   $mail->AddAddress($alici, 'Cb Seçim Anketi');
+   $mail->CharSet = 'UTF-8';
+   $mail->Subject = $baslik;
+   $mail->MsgHTML($icerik);
+   if ($mail->Send()) {
+        return true;
+   }else{
+        return false;
+   }
+}
+
+
+
 ?>
