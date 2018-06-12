@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1:3306
--- Üretim Zamanı: 12 Haz 2018, 04:12:54
+-- Üretim Zamanı: 12 Haz 2018, 04:25:52
 -- Sunucu sürümü: 5.7.21
 -- PHP Sürümü: 5.6.35
 
@@ -100,6 +100,20 @@ CREATE TABLE IF NOT EXISTS `kullanici` (
 
 INSERT INTO `kullanici` (`id`, `mail`, `sifre`, `kayıt_tarihi`, `username`) VALUES
 (1, 'ertugruldeniz@outlook.com.tr', 'e10adc3949ba59abbe56e057f20f883e', '2018-05-27 11:25:13', 'Ertuğrul Deniz');
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `oy`
+--
+
+DROP TABLE IF EXISTS `oy`;
+CREATE TABLE IF NOT EXISTS `oy` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `zaman` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `cbaday_id` smallint(2) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
