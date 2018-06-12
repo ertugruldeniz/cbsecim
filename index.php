@@ -48,10 +48,16 @@
 
 
                                  
-                                      <div class="form-group">
+                                      <div id="mail_adres" class="form-group">
                                         <label for="recipient-name" class="col-form-label">Mail adresinize kod gönderilecektir. Geçerli bir mail adresi giriniz.</label>
                                         <input type="email" class="form-control" id="mail" name="mail" placeholder="Mail Adresi Giriniz">
                                         <input type="hidden" class="form-control" id="mail_onay" name="mail_onay" value="<?=base64_encode("ok"); ?>" >
+                                      </div>
+
+                                      <div id="onay_kodu" class="form-group" style="display:none;">
+                                        <label for="recipient-name" class="col-form-label">Onay Kodu </label>
+                                        <input type="number" class="form-control" id="kulonay_kodu" name="kulonay_kodu" placeholder="Onay Kodunu Giriniz">
+                                    
                                       </div>
                                       
                                    
@@ -59,7 +65,9 @@
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
-                                <button type="submit" class="btn btn-primary"> Doğrulama Kodu</button>
+                                <button type="submit" class="btn buttonOy btnGonder"> Doğrulama Kodu Gönder</button>
+                                <button type="submit" class="btn buttonOy oanyKodu" style="display:none;"> Doğrula </button>
+
                               </div>
 
                          </form>
@@ -92,6 +100,13 @@
                                    success : function(data) {
                                   
                                      swal(data.statustext,data.message,data.status);
+
+                                     $("#mail_adres").hide();
+                                     $("#onay_kodu").show();
+                                     $(".btnGonder").hide();
+                                     $(".btn-success").hide();
+                                     $(".oanyKodu").show();
+
 
                                     }
                                               

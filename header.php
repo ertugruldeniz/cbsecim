@@ -1,4 +1,6 @@
-<?php include_once "admin/config/config.php"; 
+<?php
+date_default_timezone_set("Europe/Istanbul");
+ include_once "admin/config/config.php"; 
     if(empty($_SESSION['title'])){
 
       $ayarlar=DB::get("SELECT * FROM ayar");
@@ -35,14 +37,29 @@
         <!-- SwettAlert -->
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+    <style>
+      .back{
+            background: linear-gradient(to right,#eeaeca,#94bbe9, #94bbe9,#eeaeca);
+      } 
+      .buttonOy{
+            background: linear-gradient(to right,#3f5efb,#fc466b, #ae46fc,#eeaeca);
+      }
+      .btn-success{
+            background: linear-gradient(to right,#12c5ce,#2c8dff);
+      }
 
+           
+
+      
+    </style>
 
   </head>
 
   <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark back fixed-top">
       <div class="container">
         <a class="navbar-brand" href="#">Cumhur Başkanlığı Seçim Anketi</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">

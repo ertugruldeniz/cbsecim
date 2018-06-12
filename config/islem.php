@@ -40,15 +40,18 @@
             }
         }
 
-
-
-
-
-       
         
 
     }
 
+
+    if(isset($_POST['kulonay_kodu'])){
+
+            $response_array['status'] = 'success';
+            $response_array['statustext'] = 'Başarılı';
+            $response_array['message'] = 'Lütfen mail adresinidgsddzi kontrol ediniz'; 
+
+    }
 
 
 

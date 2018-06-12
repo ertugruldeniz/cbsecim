@@ -72,11 +72,11 @@ function mail_gonder($baslik, $icerik, $alici){
   $mail = new PHPMailer();
    $mail->IsSMTP();
    $mail->SMTPAuth = true;
-   $mail->Host = '#';
+   $mail->Host = 'mail.obsgrup.com';
    $mail->Port = 587;
-   $mail->Username = '#';
-   $mail->Password = '#';
-   $mail->SetFrom($mail->Username, "CB Seçim Anketi");
+   $mail->Username = 'destek@obsgrup.com';
+   $mail->Password = '232452!';
+   $mail->SetFrom($mail->Username, "Cb Seçim Anketi");
    $mail->AddAddress($alici, 'Cb Seçim Anketi');
    $mail->CharSet = 'UTF-8';
    $mail->Subject = $baslik;
