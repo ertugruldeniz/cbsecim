@@ -99,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `kullanici` (
 --
 
 INSERT INTO `kullanici` (`id`, `mail`, `sifre`, `kayıt_tarihi`, `username`) VALUES
-(1, 'ertugruldeniz@outlook.com.tr', 'e10adc3949ba59abbe56e057f20f883e', '2018-05-27 11:25:13', 'Ertuğrul Deniz');
+(1, 'ertugrul@outlook.com.tr', 'e10adc3949ba59abbe56e057f20f883e', '2018-05-27 11:25:13', 'Ertuğrul Deniz');
 
 -- --------------------------------------------------------
 
